@@ -16,7 +16,6 @@
 
 #ifndef  __MYLOG_DEFINE_H_
 #define  __MYLOG_DEFINE_H_
-#endif
 
 #ifndef UNSIGNED_LONG
 #define uint32 unsigned int
@@ -24,6 +23,7 @@
 
 #ifndef UNSIGNED_LONG_LONG
 #define uint64 unsigned long long
+#endif
 
 #define MAX_FILE_NAME_LEN 1024
 #define MAX_LITTLE_LEN 1024
