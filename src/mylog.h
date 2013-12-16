@@ -104,6 +104,12 @@ int my_log_init(const char* log_path, const char* normal_path, const char* warn_
  */
 int my_log_thread_init();
 
+/*
+ *关闭日志句柄
+ */
+int my_log_close();
+
+
 #endif  //__MYLOG_H_
 
 /* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
