@@ -61,6 +61,7 @@ int main()
     pthread_join(t1, NULL);
     pthread_join(t2, NULL);
     MY_LOG_DEBUG("main end");
+    my_log_close();
 }
 
 
