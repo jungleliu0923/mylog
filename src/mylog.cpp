@@ -171,5 +171,14 @@ int my_log_print(const int log_level, const char* logfmt, ...)
     return 0;
 }
 
+/*
+ *关闭日志句柄
+ */
+int my_log_close()
+{
+    fclose(g_log_ins.normal_log_fd);
+    fclose(g_log_ins.warn_fatal_log_fd);
+    return 0;
+}
 
 /* vim: set expandtab ts=4 sw=4 sts=4 tw=100: */
