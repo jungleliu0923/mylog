@@ -47,31 +47,37 @@ my_log_set_mod(mod)
 ```
 必须在单线程中使用或者my_log_thread_init() 之后使用.
 
-7) 打印FATAL日志
+7) 重设线程执行的起始时间
+```c
+ my_log_reset_start_time()
+```
+必须在单线程中使用或者my_log_thread_init() 之后使用.
+
+8) 打印FATAL日志
 ```c
 MY_LOG_FATAL(logfmt, arg...) 
 ```
 日记级别 >=1会打印 FATAL日志。
 
-8)打印WARNNING日志
+9)打印WARNNING日志
 ```c
 MY_LOG_WARNING(logfmt, arg...) 
 ```
 日记级别 >=2会打印 WARNING日志。
 
-9) 打印NOTICE日志
+10) 打印NOTICE日志
 ```c
 MY_LOG_NOTICE(logfmt, arg...) 
 ```
 日记级别 >=4会打印 NOTICE日志。
 
-10)打印TRACE日志
+11)打印TRACE日志
 ```c
 MY_LOG_TRACE(logfmt, arg...) 
 ```
 日记级别 >=8会打印TRACE日志。
 
-11) 打印DEBUG日志
+12) 打印DEBUG日志
 ```c
 MY_LOG_DEBUG(logfmt, arg...) 
 ```
