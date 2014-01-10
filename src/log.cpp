@@ -15,6 +15,8 @@
  **/
 
 #include "log.h"
+#include <iostream>
+using namespace std;
 
 static pthread_key_t g_log_key;
 static pthread_once_t  g_log_once=PTHREAD_ONCE_INIT;
@@ -81,6 +83,21 @@ int lj_log_set_logid(uint32 log_id)
     }
     plog->m_logid = log_id;
     return log_id;
+}
+
+/*
+ * 设置线程计时时间
+ */
+int lj_log_reset_start_time()
+{
+    log_info plog;
+    plog = (log_info)pthread_getspecific(g_log_key);
+    if(NULL == plog)
+    {
+        return 0;
+    }
+    gettimeofday(&plog->m_start_time,NULL);
+	return 0;
 }
 
 
@@ -172,6 +189,7 @@ char* lj_log_get_exec_time()
 	gettimeofday(&end_time, NULL);
 	uint32 time_diff = 0;
 	time_diff =  1000000 * (end_time.tv_sec- plog->m_start_time.tv_sec) + end_time.tv_usec - plog->m_start_time.tv_usec;
+
 	if(plog->m_time_type == TIME_TYPE_MSEC )
 	{
 		snprintf(plog->m_time_str, sizeof(plog->m_time_str), "%lf(ms)", 1.0 * time_diff / 1000);

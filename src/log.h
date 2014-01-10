@@ -76,6 +76,9 @@ char* lj_log_get_exec_time();
  */
 int lj_log_set_time_type(int time_type);
 
+/* 设置线程计时时间 */
+int lj_log_reset_start_time();
+
 /*
  *获得执行时间的type
  */

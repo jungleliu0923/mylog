@@ -41,35 +41,35 @@ typedef struct _mylog_info_t
 //打印线程日志
 #define MY_LOG_FATAL(logfmt, arg...) \
     do { \
-        my_log_print(MY_LOG_LEVEL_FATAL, "[%s:%d] logid[%u] reqid[%s] mod[%s] exec_time[%s] " logfmt,  \
+        my_log_print(MY_LOG_LEVEL_FATAL, "[%s:%d] logid[%u] reqip[%s] mod[%s] exec_time[%s] " logfmt,  \
                  __FILE__, __LINE__, lj_log_get_logid() , lj_log_get_reqip(), lj_log_get_mod(), lj_log_get_exec_time(), ## arg); \
     }while(0)
 
 //打印线程WARNING日志
 #define MY_LOG_WARNNING(logfmt, arg...) \
     do { \
-        my_log_print(MY_LOG_LEVEL_WARNNING, "[%s:%d] logid[%u] reqid[%s] mod[%s] exec_time[%s] " logfmt,  \
+        my_log_print(MY_LOG_LEVEL_WARNNING, "[%s:%d] logid[%u] reqip[%s] mod[%s] exec_time[%s] " logfmt,  \
                  __FILE__, __LINE__, lj_log_get_logid() , lj_log_get_reqip(), lj_log_get_mod(), lj_log_get_exec_time(), ## arg); \
     }while(0)
 
 //打印线程NOTICE日志
 #define MY_LOG_NOTICE(logfmt, arg...) \
     do { \
-        my_log_print(MY_LOG_LEVEL_NOTICE, "[%s:%d] logid[%u] reqid[%s] mod[%s] exec_time[%s] " logfmt,  \
+        my_log_print(MY_LOG_LEVEL_NOTICE, "[%s:%d] logid[%u] reqip[%s] mod[%s] exec_time[%s] " logfmt,  \
                  __FILE__, __LINE__, lj_log_get_logid() , lj_log_get_reqip(), lj_log_get_mod(), lj_log_get_exec_time(), ## arg); \
     }while(0)
 
 //打印线程TRACE日志
 #define MY_LOG_TRACE(logfmt, arg...) \
     do { \
-        my_log_print(MY_LOG_LEVEL_TRACE, "[%s:%d] logid[%u] reqid[%s] mod[%s] exec_time[%s] " logfmt,  \
+        my_log_print(MY_LOG_LEVEL_TRACE, "[%s:%d] logid[%u] reqip[%s] mod[%s] exec_time[%s] " logfmt,  \
                  __FILE__, __LINE__, lj_log_get_logid() , lj_log_get_reqip(), lj_log_get_mod(), lj_log_get_exec_time(), ## arg); \
     }while(0)
 
 //打印线程DEBUG日志
 #define MY_LOG_DEBUG(logfmt, arg...) \
     do { \
-        my_log_print(MY_LOG_LEVEL_DEBUG, "[%s:%d] logid[%u] reqid[%s] mod[%s] exec_time[%s] " logfmt,  \
+        my_log_print(MY_LOG_LEVEL_DEBUG, "[%s:%d] logid[%u] reqip[%s] mod[%s] exec_time[%s] " logfmt,  \
                  __FILE__, __LINE__, lj_log_get_logid() , lj_log_get_reqip(), lj_log_get_mod(), lj_log_get_exec_time(), ## arg); \
     }while(0)
 
@@ -84,6 +84,9 @@ typedef struct _mylog_info_t
 
 /* 设置打印执行时间计算方式 0:ms, 1: us */
 #define my_log_set_time_type(time_type) lj_log_set_time_type(time_type)
+
+/* 重设线程时间 */
+#define my_log_reset_start_time() lj_log_reset_start_time()
 
 /*
  *按照日志level打印日志(定义logcheck则需要显式去检验格式是否正确)
